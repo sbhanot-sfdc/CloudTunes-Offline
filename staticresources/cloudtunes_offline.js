@@ -30,8 +30,8 @@ function checkCacheAndPrepareSession() {
 function init() {
     $j.mobile.showPageLoadingMsg();
     
-//	checkCacheAndPrepareSession();
-//	resetOfflineStore();
+	checkCacheAndPrepareSession();
+	resetOfflineStore();
 	
     if(window.location.href.indexOf('#') > 0) {
         window.location.href = window.location.href.split("#")[0];
@@ -47,16 +47,16 @@ function getAlbums(callback) {
     if (SFHybridApp.deviceIsOnline()) {
         CloudtunesController.queryAlbums(function(records, e) { 
             showAlbums(records, callback); 
-//			addOfflineAlbums(records);
+			addOfflineAlbums(records);
         }, {escape:true}); 
     } else {
-/*      
+      
         console.log("We are offline. Fetching from the smartstore.");
         var onQuerySuccess = function(records) {
             showAlbums(records, callback);
         }
         fetchOfflineAlbums(onQuerySuccess);
-*/      
+      
     }
 }
 
@@ -100,16 +100,16 @@ function getTracks(albumid, callback) {
         CloudtunesController.queryTracks(albumid,
             function(records, e) { 
                 showTracks(records,callback);
-//              addOfflineTracks(records);
+              addOfflineTracks(records);
             }, {escape:true} );
     } else {
-/*
+
         console.log("We are offline. Fetching from the smartstore.");
         var onQuerySuccess = function(records) {
             showTracks(records, callback);
         }
         fetchOfflineTracks(albumid, onQuerySuccess);
-*/
+
     }
     
     return true;

@@ -1,13 +1,20 @@
 <apex:page showHeader="false" docType="html-5.0" standardStylesheets="false" cache="true" controller="CloudtunesController" >
 <apex:outputText escape="false" value="{!'<!DOCTYPE html>'}"/>
-<html>
+<html manifest="/apex/cloudtunes_cache">
 <head>
 <title>Cloudtunes</title>
 
 <link rel="stylesheet" href="{!URLFOR($Resource.cloudtunes_jQuery, 'jquery.mobile-1.0.1.min.css')}" />
 <apex:includeScript value="{!URLFOR($Resource.cloudtunes_jQuery, 'jquery.min.js')}"/>
 <apex:includeScript value="{!URLFOR($Resource.cloudtunes_jQuery, 'jquery.mobile-1.0.1.min.js')}"/>
-<apex:includeScript value="{!URLFOR($Resource.cloudtunes)}"/>
+<apex:includeScript value="{!URLFOR($Resource.cloudtunes_offline)}"/>
+
+<link rel="stylesheet" href="{!URLFOR($Resource.SFHybridAppCss)}" />
+<apex:variable var="pgUrl" value="{!phoneGapUrl}"/>
+<apex:includeScript value="{!URLFOR($Resource.Phonegap, pgUrl)}"/>
+<apex:includeScript value="{!URLFOR($Resource.SFHybridAppJs)}"/>
+<apex:includeScript value="{!URLFOR($Resource.SFSmartStorePlugin)}"/>
+<apex:includeScript value="{!URLFOR($Resource.cloudtunes_smartstore)}"/>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
